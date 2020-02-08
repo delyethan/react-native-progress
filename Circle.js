@@ -97,6 +97,7 @@ export class ProgressCircle extends Component {
       unfilledColor,
       endAngle,
       allowFontScaling,
+      textBackgroundColor,
       ...restProps
     } = this.props;
 
@@ -128,9 +129,9 @@ export class ProgressCircle extends Component {
                 rotate:
                   indeterminate && rotation
                     ? rotation.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: ['0deg', '360deg'],
-                      })
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '360deg'],
+                    })
                     : '0deg',
               },
             ],
@@ -145,11 +146,11 @@ export class ProgressCircle extends Component {
               endAngle={CIRCLE}
               direction={direction}
               stroke={unfilledColor}
-              strokeWidth={thickness}
+              strokeWidth={thickness + 1}
             />
           ) : (
-            false
-          )}
+              false
+            )}
           {!indeterminate ? (
             <Shape
               fill={fill}
@@ -163,8 +164,8 @@ export class ProgressCircle extends Component {
               strokeWidth={thickness}
             />
           ) : (
-            false
-          )}
+              false
+            )}
           {border ? (
             <Arc
               radius={size / 2}
@@ -175,8 +176,8 @@ export class ProgressCircle extends Component {
               strokeWidth={border}
             />
           ) : (
-            false
-          )}
+              false
+            )}
         </Surface>
         {!indeterminate && showsText ? (
           <View
@@ -189,6 +190,7 @@ export class ProgressCircle extends Component {
               borderRadius: textSize / 2,
               alignItems: 'center',
               justifyContent: 'center',
+              backgroundColor: textBackgroundColor || undefined
             }}
           >
             <Text
@@ -206,8 +208,8 @@ export class ProgressCircle extends Component {
             </Text>
           </View>
         ) : (
-          false
-        )}
+            false
+          )}
         {children}
       </View>
     );

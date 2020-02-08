@@ -171,7 +171,14 @@ declare module 'react-native-progress' {
      * @default rgba(0, 122, 255, 1)
      */
     color?: string;
-
+    /**
+     * Fill color of the indicator.
+     *
+     * @type {string}
+     * @memberof DefaultPropTypes
+     * @default undefined
+     */
+    textBackgroundColor?: string;
     /**
      * Thickness of the inner circle.
      *
@@ -352,8 +359,8 @@ declare module 'react-native-progress' {
     strokeCap?: 'butt' | 'square' | 'round';
   }
 
-  export class Bar extends React.Component<BarPropTypes> {}
-  export class Circle extends React.Component<CirclePropTypes> {}
-  export class Pie extends React.Component<PiePropTypes> {}
-  export class CircleSnail extends React.Component<CircleSnailPropTypes> {}
+  export class Bar extends React.Component<BarPropTypes> { }
+  export class Circle extends React.Component<CirclePropTypes> { }
+  export class Pie extends React.Component<PiePropTypes> { }
+  export class CircleSnail extends React.Component<CircleSnailPropTypes> { }
 }
